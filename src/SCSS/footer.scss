@@ -1,0 +1,293 @@
+@import "style.scss";
+
+.footer {
+    background-color: #384685;
+    // .footer__container
+    padding-top: rem(50);
+    padding-bottom: rem(20);
+    color: #FFFFFF;
+
+    & a {
+        color: #FFFFFF;
+    }
+
+    &__container {
+        display: flex;
+        gap: rem(30);
+
+        @media (max-width:1200px) {
+            flex-direction: column;
+        }
+    }
+
+    // .footer__main
+
+    &__main {
+        flex: 0 1 370px;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width:1200px) {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-columns: 1fr 1fr 1fr;
+            flex: auto;
+            justify-content: space-between;
+        }
+
+        @media (max-width:768.98px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width:530.98px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // .footer__logo
+    &__logo {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: rem(36);
+        gap: rem(50);
+    }
+
+    // .footer__logo-img
+
+    &__logo-img {
+        filter: invert(1);
+    }
+
+    // .footer__tel
+    &__tel-hiden {
+        font-weight: 700;
+        font-size: rem(20);
+        line-height: 1.3;
+        display: block;
+        margin-bottom: rem(21);
+
+        @media (min-width:1200px) {
+            display: none;
+        }
+    }
+
+    &__tel {
+        font-weight: 700;
+        font-size: rem(20);
+        line-height: 1.3;
+        display: block;
+        margin-bottom: rem(21);
+
+        @media (max-width:1200px) {
+            display: none;
+        }
+    }
+
+    // .footer__info
+
+    &__info {
+        margin-bottom: rem(67);
+        display: flex;
+        flex-direction: column;
+        gap: rem(10);
+
+        @media (max-width:1200px) {}
+    }
+
+    // .footer__info-item
+
+    &__info-item {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(15);
+
+    }
+
+    // .footer__info-title
+
+    &__info-title {
+        font-weight: 400;
+    }
+
+    // .footer__info-content
+
+    &__info-content {
+        text-align: right;
+        font-weight: 700;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // .footer__social /
+
+    &__social {
+        @media (max-width:1200px) {
+            justify-self: end;
+        }
+
+        @media (max-width:768.98px) {
+            justify-self: start;
+        }
+    }
+
+    // .footer__social-title
+
+    &__social-title {
+        font-weight: 700;
+        font-size: rem(22);
+        line-height: 127.272727%;
+        /* 28/22 */
+    }
+
+    // .footer__social-img
+
+    &__social-img {}
+
+    // .footer__items
+
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: rem(10);
+
+        @media (max-width:992px) {
+            display: none;
+        }
+    }
+
+    &__navigation-hiden {
+        display: grid;
+        padding: 0;
+        margin: 0;
+        column-gap: rem(10);
+        row-gap: rem(15);
+        grid-template-columns: 1fr;
+        text-align-last: left;
+
+        @media (min-width:992px) {
+            display: none;
+        }
+    }
+
+    & .top-header__element {
+        padding: 0;
+        margin: 0;
+        color: #FFFFFF;
+        text-align: center;
+
+        &.active {
+            color: #FFFFFF;
+            text-align: left;
+        }
+    }
+
+    & .top-header__content {
+        color: #FFFFFF;
+        padding: 0;
+        margin: 0;
+        padding-top: rem(20);
+        padding-bottom: rem(20);
+        border-bottom: 1px solid #DBDBDB;
+    }
+
+    & .top-header__element-kitchen::before,
+    & .top-header__element-kitchen::after {
+        display: none;
+    }
+
+    & .top-header__element-livingroom::before,
+    & .top-header__element-livingroom::after {
+        display: none;
+    }
+
+    & .top-header__element-bedroom::before,
+    & .top-header__element-bedroom::after {
+        display: none;
+    }
+
+    & .top-header__element-triplewaredrope::before,
+    & .top-header__element-triplewaredrope::after {
+        display: none;
+    }
+
+    & .top-header__element-doublewaredrope::before,
+    & .top-header__element-doublewaredrope::after {
+        display: none;
+    }
+
+    & .top-header__element-bunkbed::before,
+    & .top-header__element-bunkbed::after {
+        display: none;
+    }
+
+    & .top-header__element-diningroom::before,
+    & .top-header__element-diningroom::after {
+        display: none;
+    }
+
+    & .top-header__element-doublesofa::before,
+    & .top-header__element-doublesofa::after {
+        display: none;
+    }
+
+    // .footer__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .footer__item-title
+
+    &__item-title {
+        margin-bottom: rem(30);
+
+        & a {
+            font-weight: 700;
+            transition: 0.3s;
+            font-size: rem(20);
+            line-height: 130%;
+
+            &:hover {
+                color: #DBDBDB;
+            }
+        }
+
+        /* 26/20 */
+    }
+
+    // .footer__item-content
+
+    &__item-content {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+        flex-wrap: wrap;
+    }
+
+    // .footer__item-list
+
+    &__item-list {}
+
+    // .footer__item-link
+
+    &__item-link {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // .footer__container-copy-
+    &__copyrite {
+        max-width: 1490px;
+        margin: 0 auto;
+        padding: 0 rem(15);
+        color: #DBDBDB;
+        font-size: rem(20);
+        line-height: 1.3;
+        padding-top: rem(60);
+    }
+}

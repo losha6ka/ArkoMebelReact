@@ -1,0 +1,1670 @@
+[
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Гранд шкаф верхний горизонтальный глубокий стекло 500",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Ронда КРР1600.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Гостиная модульная Lucido",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  },
+  {
+    "name": "Мори кровать КРМ 900.1",
+    "price": "5 017 грн.",
+    "oldPrice": "7 159 грн.",
+    "discount": "-30%",
+    "product": {
+      "color": {
+        "#F3F3F3": {
+          "name": "Белый",
+          "images": [
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#6D3D49": {
+          "name": "Бордо",
+          "images": [
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#F2EFDE": {
+          "name": "Кремовый",
+          "images": [
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg",
+            "https://i.imgur.com/Yw1Xb4e.jpeg"
+          ]
+        },
+        "#877B6D": {
+          "name": "Кофейный",
+          "images": [
+            "https://i.imgur.com/Yw1Xb4e.jpeg",
+            "https://i.imgur.com/Yh0gqqh.jpeg",
+            "https://i.imgur.com/ZSazVI7.jpeg",
+            "https://i.imgur.com/W0QGpFH.jpeg"
+          ]
+        }
+      }
+    },
+    "module": [
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Ройс шкаф верхний",
+        "img": "https://i.imgur.com/kc1KCE1.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "table": [
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 1
+      },
+      {
+        "name": "Столешница ПФ 38 мм 2-ой категории в размер",
+        "img": "https://i.imgur.com/6xtd94M.jpeg",
+        "price": "3 579 грн.",
+        "oldPrice": "7 159 грн.",
+        "discount": "-50%",
+        "hit": false,
+        "id": 2
+      }
+    ],
+    "sizes": {
+      "width": "1635 мм",
+      "height": "650 мм",
+      "depth": "2032 мм"
+    },
+    "characteristics": {
+      "heightLC": "858 мм - до верха столешницы",
+      "heightUC": "700 мм",
+      "depthLC": "500 мм корпус (по столешнице 600 мм)",
+      "depthUC": "300 мм"
+    },
+    "material": {
+      "facade": "МДФ пленка ПВХ",
+      "hull": "Серый ЛДСП",
+      "guides": "Роликовые",
+      "tabletop": "Выбирается отдельно (в стоимость не входит)",
+      "glass": "4 мм матовое",
+      "fittings": "Петли и направляющие в комплекте",
+      "knobs": "В комплект не входят"
+    },
+    "delivery": [
+      {
+        "service": "Доставка по городу до подъезда",
+        "price": "800 грн",
+        "id": 1
+      },
+      {
+        "service": "Доставка по городу с подъемом",
+        "price": "1200 грн",
+        "id": 2
+      },
+      {
+        "service": "Доставка за город",
+        "price": "40 грн/км",
+        "id": 3
+      },
+      {
+        "service": "Поэтажный подъем столешницы 3 метра (в лифт не входит)",
+        "price": "150 грн/этаж",
+        "id": 4
+      },
+      {
+        "service": "Поэтажный подъем всего заказа",
+        "price": "Уточняйте стоимость у продавца",
+        "id": 5
+      }
+    ],
+    "description": [
+      "Кухня Ройс – модель, которая позволит владельцу обустроить пространство с пользой и со вкусом. Модули легко менять местами, добавлять и убирать лишние. Широкий выбор цветов фасада – дополнительный плюс для покупателя.",
+      "Фасад кухни выполнен из практичной МДФ, обтянутой ламинирующей пленкой для защиты от влаги. Корпус – из ламинированной ДСП. Материалы экологически чистые, не впитывают влагу, служат долго и просты в уходе. Все выдвижные элементы оснащены качественными роликовыми направляющими – движутся плавно и тихо.",
+      "Модель отличает большая глубина шкафов: верхних – 308 мм, нижних – 500 мм. Универсальная кухня Ройс впишется в интерьер любого стиля: от классики до хай-тек."
+    ],
+    "hit": true
+  }
+]
