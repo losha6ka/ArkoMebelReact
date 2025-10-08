@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import findSVG from "../../img/icons/find.svg"
 import locationSVG from "../../img/icons/location.svg"
 import logoSVG from "../../img/logo/logo.svg"
 import mapSVG from "../../img/icons/map.svg"
@@ -57,12 +56,7 @@ export const HeaderContainer: FC<HeaderContainerProps> = ({ name, logged }) => {
     return <div className="header__container">
         <div className="header__top top-header">
             <div className="top-header__filler">
-                <div className="top-header__find">
-                    <form action="#">
-                        <input className="top-header__find-input" type="text" placeholder="Поиск" />
-                        <img className="top-header__find-icon" src={findSVG} alt="" />
-                    </form>
-                </div>
+                <HeaderSearch top={true} />
             </div>
             <div tabIndex={0} className={activeBurger ? "top-header__menu active" : "top-header__menu"} onBlur={handleBlur}>
                 <div className="top-header__items">
@@ -120,14 +114,14 @@ export const HeaderContainer: FC<HeaderContainerProps> = ({ name, logged }) => {
         </div>
         <div className={headerFixed ? "header__mid mid-header fixed" : "header__mid mid-header"}>
             <div className="mid-header__logo logo">
-                <a href="/">
+                <Link to={"/"}>
                     <img className="logo__img" src={logoSVG} alt="" />
-                </a>
+                </Link>
             </div>
             <div className="mid-header__location">
                 <img src={mapSVG} alt="" className="mid-header__base-img" />
-                <div className="mid-header__base"><a href="/">ул. Киевская, 144 корп. - 1</a></div>
-                <div className="mid-header__base-fare"><a href="/">Схема проезда</a></div>
+                <div className="mid-header__base"><Link to={"/"}>ул. Киевская, 144 корп. - 1</Link></div>
+                <div className="mid-header__base-fare"><Link to={"/"}>Схема проезда</Link></div>
             </div>
             <HeaderSearch />
             <div className="mid-header__call">
@@ -169,7 +163,6 @@ export const HeaderContainer: FC<HeaderContainerProps> = ({ name, logged }) => {
                     </div>
                 </Link>
             </div>
-
             <div className="top-header__burger mid-header__burger" onClick={() => setActiveBurger(!activeBurger)}>
                 <button className={activeBurger ? "menu-btn menus-btn active" : "menu-btn menus-btn"}>
                     <span></span>

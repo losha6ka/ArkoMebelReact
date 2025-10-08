@@ -2717,16 +2717,16 @@
     &__tab {
         padding-left: rem(45);
         transition: 0.3s;
-
-        &:hover {
-            color: #384685;
+        &.active{
+            color:#384685;
         }
-
+        &:hover {
+            color: #0056b3;
+        }
         @media (max-width:550px) {
             padding-left: rem(20);
         }
     }
-
     // .profile__items
 
     &__items {
@@ -3205,7 +3205,8 @@
 
     &__tab {
         padding-left: rem(45);
-
+        transition: 0.3s;
+        
         @media (max-width:1024.98px) {
             padding-left: rem(20);
         }

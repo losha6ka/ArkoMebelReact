@@ -1,6 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, startAt, endAt, limit } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import debounce from "lodash.debounce";
 import findSVG from "../../img/icons/find.svg";
@@ -11,7 +11,7 @@ interface Product {
     type: "product";
 }
 
-const HeaderSearch = () => {
+const HeaderSearch: FC<{ top?: boolean }> = ({ top }) => {
     const [queryText, setQueryText] = useState("");
     const [results, setResults] = useState<Product[]>([]);
     const navigate = useNavigate();
@@ -24,9 +24,12 @@ const HeaderSearch = () => {
         }
 
         try {
-            const productsQuery = query(collection(db, "products"),
-                where("nameLowercase", ">=", text.toLowerCase()),
-                where("nameLowercase", "<=", text.toLowerCase() + "\uf8ff")
+            const productsQuery = query(
+                collection(db, "products"),
+                orderBy("nameLowercase"),
+                startAt(text.toLowerCase()),
+                endAt(text.toLowerCase() + "\uf8ff"),
+                limit(10)
             );
 
             const productsSnap = await getDocs(productsQuery);
@@ -53,6 +56,9 @@ const HeaderSearch = () => {
 
     useEffect(() => {
         debouncedFetch(queryText);
+        return () => {
+            debouncedFetch.cancel(); // отменяет отложенные вызовы
+        }
     }, [queryText, debouncedFetch]);
 
     const handleSelect = (item: Product) => {
@@ -61,16 +67,16 @@ const HeaderSearch = () => {
         navigate(`/${item.type}/${item.id}`);
     };
     return (
-        <div className="mid-header__find">
-            <form action="#" onSubmit={(e) => e.preventDefault()}>
+        <div className={top ? "top-header__find" : "mid-header__find"}>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <input
-                    className="mid-header__find-input"
+                    className={top ? "top-header__find-input" : "mid-header__find-input"}
                     type="text"
                     placeholder="Поиск"
                     value={queryText}
                     onChange={(e) => setQueryText(e.target.value)}
                 />
-                <img className="mid-header__find-icon" src={findSVG} alt="search" />
+                <img className={top ? "top-header__find-icon" : "mid-header__find-icon"} src={findSVG} alt="search" />
             </form>
 
             {/* 🔹 Выпадающий список результатов */}

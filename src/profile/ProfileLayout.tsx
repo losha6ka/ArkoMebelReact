@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import profileSVG from "../img/icons/profile.svg";
 import cartSVG from "../img/icons/cart.svg";
 import starsSVG from "../img/icons/stars.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signOut } from "firebase/auth";
 import { setUser } from "../redux/reducers/authReducer";
@@ -19,7 +19,8 @@ interface ProfileLayoutProps {
 export const ProfileLayout: FC<ProfileLayoutProps> = ({ title, children }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const currentPathname = location.pathname
     const handleLogout = async () => {
         try {
             await signOut(auth);
@@ -45,15 +46,15 @@ export const ProfileLayout: FC<ProfileLayoutProps> = ({ title, children }) => {
                         <ul className="profile__section orders__section">
                             <li className="profile__li orders__li">
                                 <img src={profileSVG} alt="" />
-                                <Link to="/profile" className="profile__tab orders__tab">Профиль</Link>
+                                <Link to="/profile" className={currentPathname === "/profile" ? "profile__tab orders__tab active" : "profile__tab orders__tab"}>Профиль</Link>
                             </li>
                             <li className="profile__li orders__li">
                                 <img src={cartSVG} alt="" />
-                                <Link to="/orders" className="profile__tab orders__tab">Мои заказы</Link>
+                                <Link to="/orders" className={currentPathname === "/orders" ? "profile__tab orders__tab active" : "profile__tab orders__tab"}>Мои заказы</Link>
                             </li>
                             <li className="profile__li orders__li">
                                 <img src={starsSVG} alt="" />
-                                <Link to="/reviews" className="profile__tab orders__tab">Отзывы</Link>
+                                <Link to="/reviews" className={currentPathname === "/reviews" ? "profile__tab orders__tab active" : "profile__tab orders__tab"}>Отзывы</Link>
                             </li>
                         </ul>
 

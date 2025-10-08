@@ -21,6 +21,7 @@ import { ProfileReviews } from './profile/reviews/ProfileReviews';
 import Loader from './customLoader/CustomLoader';
 import ScrollToTop from './utility/ScrollToTop';
 import ScrollToTopButton from './utility/ScrollToTopButton';
+import AdminPanel from './admin/AdminPanel';
 function App() {
   const loadingAuth = useSelector((state: any) => state.auth.isLoading);
 
@@ -50,6 +51,7 @@ function App() {
             <Route path="/orders" element={<ProfileOrders />} />
             <Route path="/reviews" element={<ProfileReviews />} />
             <Route path="/checkout" element={<CheckoutForm />} />
+            <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/thank-you" element={<ThankYou />} />
           </Routes>
         )}

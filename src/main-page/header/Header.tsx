@@ -14,10 +14,5 @@ export const Header: FC<HeaderProps> = ({ menu }) => {
             name={name}
             logged={logged} />
         {menu === true && <HeaderBot />}
-        <div className="mid-header__find-hiden">
-            <form action="#">
-                <input className="mid-header__find-hiden-input" type="text" placeholder="Поиск" />
-            </form>
-        </div>
     </header >
 }
