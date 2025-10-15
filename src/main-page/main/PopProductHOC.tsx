@@ -8,16 +8,16 @@ import { AppDispatch } from "../../redux/store";
 import { useWishlist } from "../../hooks/useWishlist";
 
 interface ProductCardProps {
-    id: number | string;
+    id: string;
     name: string;
-    price: string;
-    oldPrice?: string;
-    discount?: string;
+    price: number;
+    oldPrice?: number;
+    discount?: number;
     hit?: boolean;
     sizes?: { width: string; height: string; depth: string };
     product?: any;
     horizontal?: boolean;
-    maxStroke?: number
+    maxStroke?: number;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -32,29 +32,35 @@ const ProductCard: React.FC<ProductCardProps> = ({
     horizontal,
     maxStroke
 }) => {
-    const dispatch = useDispatch<AppDispatch>()
-    const [activeColor, setActiveColor] = useState<string>(() => product?.color && Object.keys(product?.color)[0]);
+    const dispatch = useDispatch<AppDispatch>();
+    const [activeColorIndex, setActiveColorIndex] = useState(0);
     const swiperRef = useRef<any>(null);
-    const { isWishlistId, handleAddToWishlist } = useWishlist()
-    const handleNewColor = (color: string) => {
-        setActiveColor(color);
-        // Переключение на нужный слайд
-        const index = product?.color && Object.keys(product?.color).indexOf(color);
+    const { isWishlistId, handleAddToWishlist } = useWishlist();
+
+    const handleNewColor = (index: number) => {
+        setActiveColorIndex(index);
         swiperRef.current?.slideTo(index);
-        dispatch(addActiveColor(color))
+        dispatch(addActiveColor(product?.colors?.[index]?.hex));
+    };
+
+    const formatPrice = (raw?: string | number | null) => {
+        if (raw == null) return "";
+        const s = String(raw).replace(/[^0-9]/g, "");
+        if (!s) return "";
+        const withSpaces = s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return `${withSpaces} грн.`;
     };
 
     useEffect(() => {
-        // Переключаем на активный цвет при первом рендере
-        const index = product?.color && Object.keys(product?.color).indexOf(activeColor);
-        swiperRef.current?.slideTo(index);
-    }, [activeColor, product?.color]);
+        swiperRef.current?.slideTo(activeColorIndex);
+    }, [activeColorIndex]);
+
     return (
         <div className={horizontal ? "popular__item product__item action__slide-item" : "popular__item product__item"}>
             <div className="popular__action product__action">
                 {discount && (
                     <span className="popular__action-eco product__action-eco active">
-                        <span >{discount}</span>
+                        <span>{discount}</span>
                     </span>
                 )}
                 {hit && (<span className="popular__action-dop product__action-dop active">ХИТ</span>)}
@@ -75,11 +81,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     onSwiper={(swiper: any) => {
                         swiperRef.current = swiper;
                     }}
-                    className="swiper popular__slider product__slider">
-                    {product?.color && Object.entries(product.color).map(([colorCode, colorData]: any, index) => (
+                    className="swiper popular__slider product__slider"
+                >
+                    {product?.colors?.map((colorData: any, index: number) => (
                         <SwiperSlide key={index} className="popular__slide product__slide">
                             <Link to={`/product/${id}`}>
-                                <img src={colorData.images[0]} alt={`Product color ${colorCode}`} />
+                                <img src={colorData.images[0]} alt={`Product color ${colorData.name}`} />
                             </Link>
                         </SwiperSlide>
                     ))}
@@ -95,18 +102,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <Link to={`/product/${id}`}>{name}</Link>
                 </div>
                 <div className="popular__pagination-color product__pagination-color">
-                    {product?.color && Object.keys(product.color).map((c: string, index) => (
-                        <span onClick={() => handleNewColor(c)} style={{
-                            backgroundColor: c,
-                            transform: c === activeColor ? "scale(1.1)" : "scale(1)",
-                            border: c === activeColor ? "1px solid #384685" : "none",
-                            cursor: "pointer"
-                        }} key={index}></span>
+                    {product?.colors?.map((c: any, index: number) => (
+                        <span
+                            onClick={() => handleNewColor(index)}
+                            style={{
+                                backgroundColor: c.hex,
+                                transform: index === activeColorIndex ? "scale(1.1)" : "scale(1)",
+                                border: index === activeColorIndex ? "1px solid #384685" : "none",
+                                cursor: "pointer"
+                            }}
+                            key={index}
+                        ></span>
                     ))}
                 </div>
                 <div className="popular__cost product__cost">
-                    {oldPrice && <span className="popular__cost-trought product__cost-trought">{oldPrice}</span>}
-                    {price}
+                    {oldPrice && <span className="popular__cost-trought product__cost-trought">{formatPrice(oldPrice)}</span>}
+                    {formatPrice(price)}
                 </div>
                 {sizes && (
                     <div className="popular__dopinfo-hiden product__dopinfo-hiden">
@@ -114,14 +125,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         <div className="product__dopinfo-hiden-siz">
                             {sizes.width}*{sizes.depth}*{sizes.height}
                         </div>
-                    </div>)}
+                    </div>
+                )}
                 <div className="popular__actions product__actions">
-                    <button style={{ background: "none" }} >
+                    <button style={{ background: "none" }}>
                         <Link className="popular__button-buy product__button-buy" to={`/product/${id}`}>КУПИТЬ</Link>
                     </button>
                     <button
                         onClick={() => handleAddToWishlist({
-                            id, name, price, link: `/product/${id}`, image: product?.color?.[activeColor]?.images?.[0] || ""
+                            id, name, price, link: `/product/${id}`, image: product?.colors?.[activeColorIndex]?.images?.[0] || ""
                         })}
                         className="popular__button-favorite product__button-favorite"
                         data-tooltip={
@@ -136,7 +148,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     </button>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 

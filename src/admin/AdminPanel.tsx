@@ -1,5 +1,5 @@
 // src/admin/AdminPanel.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
     collection,
     getDocs,
@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import "../SCSS/admin.scss";
+import { LoadProductMOCK } from "../Addproduct";
 
 type ModuleOrTable = {
     id?: string | number;
@@ -85,12 +86,32 @@ const emptyProduct = (): ProductType => ({
     image: "",
 });
 
+// --- Helpers for price formatting ---
+const formatPrice = (raw?: string | number | null) => {
+    if (raw == null) return "";
+    const s = String(raw).replace(/[^0-9]/g, "");
+    if (!s) return "";
+    // insert space as thousand separator
+    const withSpaces = s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return `${withSpaces} грн.`;
+};
+
+const stripPrice = (val?: string) => {
+    if (!val) return "";
+    return String(val).replace(/[^0-9]/g, "");
+};
+
 export const AdminPanel: React.FC = () => {
     const [items, setItems] = useState<ProductType[]>([]);
     const [loading, setLoading] = useState(false);
     const [editing, setEditing] = useState<ProductType | null>(null);
     const [isSaving, setIsSaving] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    // search + pagination
+    const [queryText, setQueryText] = useState("");
+    const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
 
     const fetchProducts = async () => {
         setLoading(true);
@@ -114,11 +135,23 @@ export const AdminPanel: React.FC = () => {
         fetchProducts();
     }, []);
 
+    useEffect(() => {
+        setPage(1); // reset page when query changes
+    }, [queryText, pageSize]);
+
+    const filtered = useMemo(() => {
+        const q = queryText.trim().toLowerCase();
+        if (!q) return items;
+        return items.filter((p) => p.name.toLowerCase().includes(q));
+    }, [items, queryText]);
+
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
+
     const handleCreateNew = () => setEditing(emptyProduct());
 
     const handleDelete = async (id?: string) => {
         if (!id) return;
-        // if (!confirm("Удалить продукт?")) return;
         try {
             await deleteDoc(doc(db, "products", id));
             setItems((s) => s.filter((p) => p.id !== id));
@@ -140,6 +173,13 @@ export const AdminPanel: React.FC = () => {
         }
         setIsSaving(true);
         try {
+            // ensure price fields are formatted
+            if (editing.price) editing.price = formatPrice(stripPrice(editing.price));
+            if (editing.oldPrice) editing.oldPrice = formatPrice(stripPrice(editing.oldPrice));
+            (editing.module || []).forEach((m) => { if (m.price) m.price = formatPrice(stripPrice(m.price)); });
+            (editing.table || []).forEach((m) => { if (m.price) m.price = formatPrice(stripPrice(m.price)); });
+            (editing.delivery || []).forEach((d) => { if (d.price) d.price = formatPrice(stripPrice(d.price)); });
+
             if (editing.id) {
                 const refDoc = doc(db, "products", editing.id);
                 const payload = { ...editing } as any;
@@ -161,17 +201,33 @@ export const AdminPanel: React.FC = () => {
     };
 
     // ---- НОВОЕ: работа с URL картинок (без storage) ----
-    const addColor = () => {
+    const addColor = (code = "#cccccc") => {
         if (!editing) return;
         const clone = JSON.parse(JSON.stringify(editing));
         clone.product = clone.product || { color: {} };
-        // выбираем уникальный ключ цвета (можно потом изменить вручную)
-        let code = "#cccccc";
+        // выбираем уникальный ключ цвета
+        let key = code;
         let i = 1;
-        while (clone.product.color[code]) {
-            code = `#cccccc${i++}`;
+        while (clone.product.color[key]) {
+            key = `${code}${i++}`;
         }
-        clone.product.color[code] = { name: "Новый цвет", images: [] };
+        clone.product.color[key] = { name: "Новый цвет", images: [] };
+        setEditing(clone);
+    };
+
+    const changeColorKey = (oldKey: string, newKey: string) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone.product = clone.product || { color: {} };
+        if (!clone.product.color[oldKey]) return;
+        // ensure unique
+        let key = newKey || oldKey;
+        let i = 1;
+        while (clone.product.color[key] && key !== oldKey) {
+            key = `${newKey}${i++}`;
+        }
+        clone.product.color[key] = clone.product.color[oldKey];
+        if (key !== oldKey) delete clone.product.color[oldKey];
         setEditing(clone);
     };
 
@@ -230,7 +286,7 @@ export const AdminPanel: React.FC = () => {
         if (!editing) return;
         const clone = JSON.parse(JSON.stringify(editing));
         clone.delivery = clone.delivery || [];
-        clone.delivery.push({ service: "Новый сервис", price: "0 грн" });
+        clone.delivery.push({ service: "Новый сервис", price: "" });
         setEditing(clone);
     };
     const removeDelivery = (idx: number) => {
@@ -245,16 +301,61 @@ export const AdminPanel: React.FC = () => {
         setEditing({ ...editing, image: url });
     };
 
-    // helper: ask user for URL via prompt (удобно)
     const promptForUrl = async (action: (url: string) => void) => {
         const url = window.prompt("Вставьте прямую ссылку на изображение (URL):");
         if (url && url.trim()) action(url.trim());
     };
 
+    // price helpers for inputs: allow typing digits, format on blur
+    const handlePriceChange = (field: keyof ProductType, value: string) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        // keep raw digits while typing
+        clone[field] = stripPrice(value);
+        setEditing(clone);
+    };
+
+    const handlePriceBlur = (field: keyof ProductType) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone[field] = formatPrice(stripPrice(clone[field] as any));
+        setEditing(clone);
+    };
+
+    const handleSubItemPriceChange = (target: "module" | "table", idx: number, value: string) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone[target][idx].price = stripPrice(value);
+        setEditing(clone);
+    };
+    const handleSubItemPriceBlur = (target: "module" | "table", idx: number) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone[target][idx].price = formatPrice(stripPrice(clone[target][idx].price));
+        setEditing(clone);
+    };
+
+    const handleDeliveryPriceChange = (idx: number, value: string) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone.delivery[idx].price = stripPrice(value);
+        setEditing(clone);
+    };
+    const handleDeliveryPriceBlur = (idx: number) => {
+        if (!editing) return;
+        const clone = JSON.parse(JSON.stringify(editing));
+        clone.delivery[idx].price = formatPrice(stripPrice(clone.delivery[idx].price));
+        setEditing(clone);
+    };
+
+    // palette of popular colors
+    const suggestedColors = ["#ffffff", "#000000", "#f4f4f4", "#e6e6e6", "#c0c0c0", "#ff0000", "#00ff00", "#0000ff", "#f5deb3", "#8b4513"];
+
     return (
         <div className="admin-panel">
             <div className="admin-panel__header">
                 <h1>Admin Panel — Товары</h1>
+                <LoadProductMOCK />
                 <div className="admin-panel__controls">
                     <button className="btn" onClick={handleCreateNew}>Создать товар</button>
                     <button className="btn btn--muted" onClick={fetchProducts}>Обновить список</button>
@@ -266,14 +367,28 @@ export const AdminPanel: React.FC = () => {
 
             <div className="admin-panel__grid">
                 <div className="admin-panel__list">
-                    {items.map((p) => (
+                    <div className="list-controls">
+                        <input className="search" placeholder="Поиск по названию..." value={queryText} onChange={(e) => setQueryText(e.target.value)} />
+                        <div className="pagination-controls">
+                            <label>Показывать
+                                <select value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>20</option>
+                                </select>
+                                на странице
+                            </label>
+                        </div>
+                    </div>
+
+                    {paginated.map((p) => (
                         <div key={p.id} className="admin-panel__card">
                             <div className="admin-panel__thumb">
                                 {getProductThumbnail(p) ? <img src={getProductThumbnail(p) as string} alt={p.name} /> : <div className="placeholder">Нет фото</div>}
                             </div>
                             <div className="admin-panel__meta">
                                 <div className="admin-panel__name">{p.name}</div>
-                                <div className="admin-panel__price">{p.price}</div>
+                                <div className="admin-panel__price">{formatPrice(stripPrice(p.price)) || p.price}</div>
                             </div>
                             <div className="admin-panel__actions">
                                 <button className="btn" onClick={() => handleEdit(p)}>Редактировать</button>
@@ -281,12 +396,30 @@ export const AdminPanel: React.FC = () => {
                             </div>
                         </div>
                     ))}
+
+                    <div className="pager">
+                        <button className="btn" onClick={() => setPage((s) => Math.max(1, s - 1))} disabled={page <= 1}>◀</button>
+                        <span>Страница {page} из {totalPages}</span>
+                        <button className="btn" onClick={() => setPage((s) => Math.min(totalPages, s + 1))} disabled={page >= totalPages}>▶</button>
+                    </div>
                 </div>
 
                 <div className="admin-panel__editor">
                     {editing ? (
                         <div>
                             <h2>{editing.id ? `Редактировать: ${editing.name}` : "Новый товар"}</h2>
+
+                            {/* Preview карточки прямо перед добавлением/редактированием */}
+                            <div className="live-preview">
+                                <h4>Предпросмотр</h4>
+                                <div className="preview-card">
+                                    <div className="thumb">{getProductThumbnail(editing) ? <img src={getProductThumbnail(editing) as string} alt="preview" /> : <div className="placeholder">Нет фото</div>}</div>
+                                    <div className="meta">
+                                        <div className="name">{editing.name || "Название"}</div>
+                                        <div className="price">{formatPrice(stripPrice(editing.price)) || editing.price || "Цена"}</div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <label className="field">
                                 <span>Название</span>
@@ -296,11 +429,17 @@ export const AdminPanel: React.FC = () => {
                             <div className="two-cols">
                                 <label className="field">
                                     <span>Цена</span>
-                                    <input value={editing.price} onChange={(e) => setEditing({ ...editing, price: e.target.value })} />
+                                    <input value={stripPrice(editing.price)}
+                                        onChange={(e) => handlePriceChange("price", e.target.value)}
+                                        onBlur={() => handlePriceBlur("price")}
+                                        placeholder="5000" />
                                 </label>
                                 <label className="field">
                                     <span>Старая цена</span>
-                                    <input value={editing.oldPrice} onChange={(e) => setEditing({ ...editing, oldPrice: e.target.value })} />
+                                    <input value={stripPrice(editing.oldPrice)}
+                                        onChange={(e) => handlePriceChange("oldPrice", e.target.value)}
+                                        onBlur={() => handlePriceBlur("oldPrice")}
+                                        placeholder="7000" />
                                 </label>
                             </div>
 
@@ -331,13 +470,20 @@ export const AdminPanel: React.FC = () => {
                             <div className="section">
                                 <div className="section-header">
                                     <h3>Цвета (colors)</h3>
-                                    <button className="btn" onClick={addColor}>Добавить цвет</button>
+                                    <div style={{ display: "flex", gap: 8 }}>
+                                        <button className="btn" onClick={() => addColor()}>Добавить цвет</button>
+                                        {suggestedColors.map((c) => (
+                                            <button key={c} title={c} className="color-suggest" onClick={() => addColor(c)}>
+                                                <span style={{ background: c, width: 20, height: 20, display: "inline-block", border: "1px solid #000" }} />
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
                                 <div className="colors">
                                     {editing.product && Object.entries(editing.product.color || {}).map(([code, cd]) => (
                                         <div className="color-row" key={code}>
-                                            <div className="color-sample" style={{ background: code }} />
-                                            <input value={code} readOnly className="color-code" />
+                                            <input type="color" value={code.startsWith("#") ? code : "#cccccc"} onChange={(e) => changeColorKey(code, e.target.value)} />
+                                            <input className="color-code" value={code} readOnly />
                                             <input className="color-name" value={cd.name} onChange={(e) => {
                                                 const clone = JSON.parse(JSON.stringify(editing));
                                                 clone.product.color[code].name = e.target.value;
@@ -383,11 +529,7 @@ export const AdminPanel: React.FC = () => {
                                             clone.module[idx].img = e.target.value;
                                             setEditing(clone);
                                         }} />
-                                        <input placeholder="price" value={m.price} onChange={(e) => {
-                                            const clone = JSON.parse(JSON.stringify(editing));
-                                            clone.module[idx].price = e.target.value;
-                                            setEditing(clone);
-                                        }} />
+                                        <input placeholder="price" value={stripPrice(m.price)} onChange={(e) => handleSubItemPriceChange("module", idx, e.target.value)} onBlur={() => handleSubItemPriceBlur("module", idx)} />
                                         <button className="btn btn--danger" onClick={() => removeModule("module", idx)}>Удалить</button>
                                     </div>
                                 ))}
@@ -408,11 +550,7 @@ export const AdminPanel: React.FC = () => {
                                             clone.table[idx].img = e.target.value;
                                             setEditing(clone);
                                         }} />
-                                        <input placeholder="price" value={m.price} onChange={(e) => {
-                                            const clone = JSON.parse(JSON.stringify(editing));
-                                            clone.table[idx].price = e.target.value;
-                                            setEditing(clone);
-                                        }} />
+                                        <input placeholder="price" value={stripPrice(m.price)} onChange={(e) => handleSubItemPriceChange("table", idx, e.target.value)} onBlur={() => handleSubItemPriceBlur("table", idx)} />
                                         <button className="btn btn--danger" onClick={() => removeModule("table", idx)}>Удалить</button>
                                     </div>
                                 ))}
@@ -443,16 +581,11 @@ export const AdminPanel: React.FC = () => {
                                             clone.delivery[idx].service = e.target.value;
                                             setEditing(clone);
                                         }} />
-                                        <input value={d.price} onChange={(e) => {
-                                            const clone = JSON.parse(JSON.stringify(editing));
-                                            clone.delivery[idx].price = e.target.value;
-                                            setEditing(clone);
-                                        }} />
+                                        <input value={stripPrice(d.price)} onChange={(e) => handleDeliveryPriceChange(idx, e.target.value)} onBlur={() => handleDeliveryPriceBlur(idx)} />
                                         <button className="btn btn--danger" onClick={() => removeDelivery(idx)}>Удалить</button>
                                     </div>
                                 ))}
                             </div>
-
                             <div className="section">
                                 <h3>Размеры</h3>
                                 <div className="two-cols">

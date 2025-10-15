@@ -5,9 +5,9 @@ import { saveWishlistToFirestore } from "../redux/thunks/wishlistThunks";
 import { useAuth } from "./authHook";
 
 interface WishlistItem {
-    id: string | number;
+    id: string;
     name: string;
-    price: string;
+    price: number;
     link: string;
     image: string;
 }

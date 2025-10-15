@@ -68,7 +68,14 @@ export const ProductCardPage: FC = () => {
             dispatch(fetchCommentsByProduct(productId))
         }
     }, [dispatch, productId])
-
+    const formatPrice = (raw?: string | number | null) => {
+        if (raw == null) return "";
+        const s = String(raw).replace(/[^0-9]/g, "");
+        if (!s) return "";
+        // insert space as thousand separator
+        const withSpaces = s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return `${withSpaces} грн.`;
+    };
     return <div className="wrapper">
         {isLoading === false
             ? <div>
@@ -77,10 +84,11 @@ export const ProductCardPage: FC = () => {
                 <Breadcrumbs />
                 <MainProductCard
                     id={currentProduct?.id}
+                    formatPrice={formatPrice}
                     name={currentProduct?.name}
                     price={currentProduct?.price}
                     oldPrice={currentProduct?.oldPrice}
-                    discount={currentProduct?.discount}
+                    discountPercent={currentProduct?.discount}
                     sizes={currentProduct?.sizes}
                     hit={currentProduct?.hit}
                     product={currentProduct?.product}

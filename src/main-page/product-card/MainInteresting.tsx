@@ -2,11 +2,11 @@ import { FC } from "react";
 import ProductCard from "../main/PopProductHOC";
 
 interface MainInterestingProps {
-    id: number;
+    id: string;
     name: string;
-    price: string;
-    oldPrice?: string;
-    discount?: string;
+    price: number;
+    oldPrice?: number;
+    discount?: number;
     hit?: boolean;
     product?: any;
     sizes?: { width: string; height: string; depth: string };

@@ -4436,7 +4436,7 @@
     }
 
     &__colors-color {
-        display: flex;
+        display: inline-flex;
         flex-wrap: wrap;
         gap: rem(15);
         border-radius: 2px;

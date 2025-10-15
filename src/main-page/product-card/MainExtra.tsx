@@ -6,21 +6,21 @@ import payship4 from "../../img/payship/04.svg"
 import { MainReviews } from "./MainReviews";
 import { Reviews } from "./Reviews";
 interface WishlistItem {
-    id: string | number;
+    id: string;
     name: string;
-    price: string;
+    price: number;
     link: string;
     image: string;
 }
 interface MainExtraProps {
     uid: any,
-    id: string | number,
+    id: string,
     module?: any,
     table?: any,
     feedback?: any,
     description?: any,
     handleAddToCart: any,
-    isWishlistId: (name: string, id: string | number) => boolean;
+    isWishlistId: (name: string, id: string) => boolean;
     handleAddToWishlist: (item: WishlistItem) => void;
 }
 
