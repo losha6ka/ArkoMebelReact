@@ -10,6 +10,7 @@ import { setUser } from "../redux/reducers/authReducer";
 import { auth } from "../firebase/firebase";
 import { Header } from "../main-page/header/Header";
 import { Footer } from "../main-page/footer/Footer";
+import { useAuth } from "../hooks/authHook";
 
 interface ProfileLayoutProps {
     title: string;     // Заголовок страницы ("ПРОФИЛЬ", "МОИ ЗАКАЗЫ", "ОТЗЫВЫ")
@@ -18,6 +19,8 @@ interface ProfileLayoutProps {
 
 export const ProfileLayout: FC<ProfileLayoutProps> = ({ title, children }) => {
     const dispatch = useDispatch();
+    const { uid } = useAuth()
+    const aid = process.env.REACT_APP_ADMIN_ID
     const navigate = useNavigate();
     const location = useLocation();
     const currentPathname = location.pathname
@@ -38,6 +41,9 @@ export const ProfileLayout: FC<ProfileLayoutProps> = ({ title, children }) => {
                 <div className="orders__container">
                     <div className="profile__header orders__header">
                         <h2 className="orders__title profile__title page-title">{title}</h2>
+                        {uid === aid
+                            && <Link to={"/admin-panel"}
+                                style={{ backgroundColor: "green" }} className="profile__unlogin">Админ Панель</Link>}
                         <button onClick={handleLogout} className="profile__unlogin">Выйти</button>
                     </div>
 

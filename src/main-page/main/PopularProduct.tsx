@@ -35,16 +35,17 @@ export const PopularProduct: FC = () => {
                         sizes={card.sizes}
                         product={card.product}
                         hit={card.hit}
+                        previewImage={card.image}
                     />
                 )) : <Loader />}
             </div>
-            {cards && loadingCard < cards.length ?
+            {cards?.length >= loadingCard && (loadingCard < cards.length ?
                 <button onClick={() => loadMoreCards()} className="product__load">
                     <span>Показать еще</span>
                 </button>
                 : <button onClick={() => hideMoreCards(8)} className="product__load">
                     <span>Скрыть</span>
-                </button>}
+                </button>)}
         </div>
     </section >
 }

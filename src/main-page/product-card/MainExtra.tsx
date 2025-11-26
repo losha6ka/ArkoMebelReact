@@ -22,6 +22,7 @@ interface MainExtraProps {
     handleAddToCart: any,
     isWishlistId: (name: string, id: string) => boolean;
     handleAddToWishlist: (item: WishlistItem) => void;
+    previewImage: string;
 }
 
 export const MainExtra: FC<MainExtraProps> = ({
@@ -29,7 +30,8 @@ export const MainExtra: FC<MainExtraProps> = ({
     module, table,
     feedback, description,
     handleAddToCart,
-    isWishlistId, handleAddToWishlist
+    isWishlistId, handleAddToWishlist,
+    previewImage
 }) => {
     const [activeFilters, setActiveFilters] = useState<string>("ДОСТУПНЫЕ МОДУЛИ")
     const filters = {

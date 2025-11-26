@@ -37,7 +37,7 @@ export type ProductType = {
     oldPrice?: string;
     discount?: string;
     product?: {
-        color?: Record<string, { name?: string; images: string[] }>;
+        colors?: Record<string, { name?: string; images: string[]; hex: string; id: string; thumbnail: string }>;
     };
     module?: ModuleOrTable[];
     table?: ModuleOrTable[];
@@ -48,32 +48,17 @@ export type ProductType = {
     description?: string[];
     hit?: boolean;
     productstar?: number;
-    image?: string; // preview URL
+    image?: string
 };
 
 const productsCollection = collection(db, "products");
-
-function getProductThumbnail(p: ProductType): string | null {
-    if (p.image) return p.image;
-    const colors = p.product?.color;
-    if (colors) {
-        const entries = Object.values(colors);
-        if (entries.length) {
-            const first = entries[0];
-            if (first.images && first.images.length) return first.images[0];
-        }
-    }
-    if (p.module && p.module.length && p.module[0].img) return p.module[0].img!;
-    if (p.table && p.table.length && p.table[0].img) return p.table[0].img!;
-    return null;
-}
 
 const emptyProduct = (): ProductType => ({
     name: "",
     price: "",
     oldPrice: "",
     discount: "",
-    product: { color: {} },
+    product: { colors: {} },
     module: [],
     table: [],
     sizes: { width: "", height: "", depth: "" },
@@ -350,6 +335,7 @@ export const AdminPanel: React.FC = () => {
 
     // palette of popular colors
     const suggestedColors = ["#ffffff", "#000000", "#f4f4f4", "#e6e6e6", "#c0c0c0", "#ff0000", "#00ff00", "#0000ff", "#f5deb3", "#8b4513"];
+    console.log(items)
 
     return (
         <div className="admin-panel">
@@ -384,7 +370,10 @@ export const AdminPanel: React.FC = () => {
                     {paginated.map((p) => (
                         <div key={p.id} className="admin-panel__card">
                             <div className="admin-panel__thumb">
-                                {getProductThumbnail(p) ? <img src={getProductThumbnail(p) as string} alt={p.name} /> : <div className="placeholder">Нет фото</div>}
+                                <img
+                                    src={Object.values(p.product?.colors || {})[0]?.thumbnail}
+                                    alt={p.name}
+                                />
                             </div>
                             <div className="admin-panel__meta">
                                 <div className="admin-panel__name">{p.name}</div>
@@ -413,7 +402,12 @@ export const AdminPanel: React.FC = () => {
                             <div className="live-preview">
                                 <h4>Предпросмотр</h4>
                                 <div className="preview-card">
-                                    <div className="thumb">{getProductThumbnail(editing) ? <img src={getProductThumbnail(editing) as string} alt="preview" /> : <div className="placeholder">Нет фото</div>}</div>
+                                    <div className="thumb">
+                                        <img
+                                            src={Object.values(editing.product?.colors || {})[0]?.thumbnail}
+                                            alt={editing.name}
+                                        />
+                                    </div>
                                     <div className="meta">
                                         <div className="name">{editing.name || "Название"}</div>
                                         <div className="price">{formatPrice(stripPrice(editing.price)) || editing.price || "Цена"}</div>
@@ -480,7 +474,7 @@ export const AdminPanel: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="colors">
-                                    {editing.product && Object.entries(editing.product.color || {}).map(([code, cd]) => (
+                                    {editing.product && Object.entries(editing.product.colors || {}).map(([code, cd]) => (
                                         <div className="color-row" key={code}>
                                             <input type="color" value={code.startsWith("#") ? code : "#cccccc"} onChange={(e) => changeColorKey(code, e.target.value)} />
                                             <input className="color-code" value={code} readOnly />
@@ -529,6 +523,7 @@ export const AdminPanel: React.FC = () => {
                                             clone.module[idx].img = e.target.value;
                                             setEditing(clone);
                                         }} />
+                                        <img className="mini-img" src={m.img} alt="module-img" />
                                         <input placeholder="price" value={stripPrice(m.price)} onChange={(e) => handleSubItemPriceChange("module", idx, e.target.value)} onBlur={() => handleSubItemPriceBlur("module", idx)} />
                                         <button className="btn btn--danger" onClick={() => removeModule("module", idx)}>Удалить</button>
                                     </div>
@@ -538,19 +533,20 @@ export const AdminPanel: React.FC = () => {
                             <div className="section">
                                 <h3>Столешницы</h3>
                                 <button className="btn" onClick={() => addModule("table")}>Добавить столешницу</button>
-                                {(editing.table || []).map((m, idx) => (
+                                {(editing.table || []).map((t, idx) => (
                                     <div className="line" key={idx}>
-                                        <input value={m.name} onChange={(e) => {
+                                        <input value={t.name} onChange={(e) => {
                                             const clone = JSON.parse(JSON.stringify(editing));
                                             clone.table[idx].name = e.target.value;
                                             setEditing(clone);
                                         }} />
-                                        <input placeholder="img URL" value={m.img} onChange={(e) => {
+                                        <input placeholder="img URL" value={t.img} onChange={(e) => {
                                             const clone = JSON.parse(JSON.stringify(editing));
                                             clone.table[idx].img = e.target.value;
                                             setEditing(clone);
                                         }} />
-                                        <input placeholder="price" value={stripPrice(m.price)} onChange={(e) => handleSubItemPriceChange("table", idx, e.target.value)} onBlur={() => handleSubItemPriceBlur("table", idx)} />
+                                        <img className="mini-img" src={t.img} alt="module-img" />
+                                        <input placeholder="price" value={stripPrice(t.price)} onChange={(e) => handleSubItemPriceChange("table", idx, e.target.value)} onBlur={() => handleSubItemPriceBlur("table", idx)} />
                                         <button className="btn btn--danger" onClick={() => removeModule("table", idx)}>Удалить</button>
                                     </div>
                                 ))}
@@ -594,7 +590,6 @@ export const AdminPanel: React.FC = () => {
                                     <input placeholder="depth" value={editing.sizes?.depth} onChange={(e) => setEditing({ ...editing, sizes: { ...editing.sizes, depth: e.target.value } })} />
                                 </div>
                             </div>
-
                             <div className="editor-actions">
                                 <button className="btn btn--primary" onClick={handleSave} disabled={isSaving}>{isSaving ? "Сохраняем..." : "Сохранить"}</button>
                                 <button className="btn btn--muted" onClick={handleCancelEdit}>Отменить</button>

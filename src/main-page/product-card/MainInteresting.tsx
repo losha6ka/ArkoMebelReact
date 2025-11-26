@@ -10,6 +10,7 @@ interface MainInterestingProps {
     hit?: boolean;
     product?: any;
     sizes?: { width: string; height: string; depth: string };
+    previewImage: string
 }
 
 export const MainInteresting: FC<MainInterestingProps> = ({
@@ -21,6 +22,7 @@ export const MainInteresting: FC<MainInterestingProps> = ({
     sizes,
     hit,
     product,
+    previewImage
 }) => {
     return <section className="main-insteresting insteresting">
         <div className="insteresting__container">
@@ -36,6 +38,7 @@ export const MainInteresting: FC<MainInterestingProps> = ({
                     sizes={sizes}
                     product={product}
                     hit={hit}
+                    previewImage={previewImage}
                 />
             </div>
         </div>

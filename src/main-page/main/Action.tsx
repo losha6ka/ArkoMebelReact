@@ -38,6 +38,7 @@ export const Action: FC<{ actionComponent?: boolean }> = ({ actionComponent }) =
                         product={card.product}
                         hit={card.hit}
                         key={index}
+                        previewImage={card.image}
                     // horizontal={true}
                     />
                 )) : <Loader />}
@@ -67,6 +68,7 @@ export const Action: FC<{ actionComponent?: boolean }> = ({ actionComponent }) =
                                     sizes={card.sizes}
                                     product={card.product}
                                     hit={card.hit}
+                                    previewImage={card.image}
                                     horizontal={true}
                                 />
                             </SwiperSlide>

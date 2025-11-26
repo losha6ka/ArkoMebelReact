@@ -100,6 +100,7 @@ export const ProductCardPage: FC = () => {
                     handleAddToCart={handleAddToCart}
                     isWishlistId={isWishlistId}
                     handleAddToWishlist={handleAddToWishlist}
+                    previewImage={currentProduct?.image}
                 />
                 <MainExtra
                     uid={uid}
@@ -110,6 +111,7 @@ export const ProductCardPage: FC = () => {
                     handleAddToCart={handleAddToCart}
                     isWishlistId={isWishlistId}
                     handleAddToWishlist={handleAddToWishlist}
+                    previewImage={currentProduct?.image}
                 />
                 <MainInteresting
                     id={currentProduct?.id}
@@ -120,6 +122,7 @@ export const ProductCardPage: FC = () => {
                     sizes={currentProduct?.sizes}
                     hit={currentProduct?.hit}
                     product={currentProduct?.product}
+                    previewImage={currentProduct?.image}
                 />
                 <Category />
                 <MainContact />

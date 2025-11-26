@@ -8,11 +8,11 @@ export const Footer: FC = () => {
     const handleClickMenu = (id: string) => {
         setActiveSection(prev => (prev === id ? null : id));
     };
-    const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) {
-            setActiveSection(null);
-        }
-    };
+    // const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    //     if (!event.currentTarget.contains(event.relatedTarget)) {
+    //         setActiveSection(null);
+    //     }
+    // };
     return <footer className="footer">
         <div className="footer__container">
             <div className="footer__main">

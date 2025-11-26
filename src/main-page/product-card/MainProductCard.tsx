@@ -5,13 +5,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import location from "../../img/icons/location.svg";
 
-interface WishlistItem {
-    id: string | number;
-    name: string;
-    price: number;
-    link: string;
-    image: string;
-}
+// interface WishlistItem {
+//     id: string | number;
+//     name: string;
+//     price: number;
+//     link: string;
+//     image: string;
+// }
 
 interface Color {
     id: string;
@@ -55,7 +55,8 @@ interface MainProductCardProps {
     handleAddToCart: (product: any) => void;
     isWishlistId: (name: string, id: string | number) => boolean;
     handleAddToWishlist: any;
-    formatPrice: any
+    formatPrice: any;
+    previewImage: string;
 }
 
 export const MainProductCard: FC<MainProductCardProps> = ({
@@ -73,7 +74,8 @@ export const MainProductCard: FC<MainProductCardProps> = ({
     handleAddToCart,
     isWishlistId,
     handleAddToWishlist,
-    formatPrice
+    formatPrice,
+    previewImage
 }) => {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
     const [activeCharact, setActiveCharact] = useState(false);

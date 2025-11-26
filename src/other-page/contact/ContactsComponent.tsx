@@ -1,5 +1,6 @@
 import { FC } from "react";
 import contactImg from "../../img/contact/01.jpg"
+import { Link } from "react-router-dom";
 export const ContactsComponent: FC = () => {
     return <section className="main-contact contact">
         <div className="contact__container">
@@ -19,7 +20,7 @@ export const ContactsComponent: FC = () => {
                         </div>
                         <div className="footer__info-item">
                             <div className="footer__info-title">Адрес:</div>
-                            <a href="" className="footer__info-content">Чернодар, ул. Киевская 144 корп. - 1</a>
+                            <Link to={"/"} className="footer__info-content">Чернодар, ул. Киевская 144 корп. - 1</Link>
                         </div>
                         <div className="footer__info-item">
                             <div className="footer__info-title">Телефон:</div>

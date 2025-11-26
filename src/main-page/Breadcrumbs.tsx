@@ -1,7 +1,5 @@
 import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 import { useCard } from "../hooks/cardHook";
 
 const breadcrumbMap: { [key: string]: string } = {

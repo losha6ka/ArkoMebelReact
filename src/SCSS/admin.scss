@@ -111,6 +111,7 @@
   .line { display:flex; gap:8px; align-items:center; margin-bottom:8px;
     input, textarea { flex:1; }
   }
+  .mini-img{width: 80px;object-fit: contain;}
 
   .preview img { width:120px; border-radius:6px; margin-top:8px; }
 

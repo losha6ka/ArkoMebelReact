@@ -18,6 +18,7 @@ interface ProductCardProps {
     product?: any;
     horizontal?: boolean;
     maxStroke?: number;
+    previewImage?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -30,7 +31,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     hit,
     product,
     horizontal,
-    maxStroke
+    maxStroke,
+    previewImage
 }) => {
     const dispatch = useDispatch<AppDispatch>();
     const [activeColorIndex, setActiveColorIndex] = useState(0);
@@ -54,7 +56,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     useEffect(() => {
         swiperRef.current?.slideTo(activeColorIndex);
     }, [activeColorIndex]);
-
     return (
         <div className={horizontal ? "popular__item product__item action__slide-item" : "popular__item product__item"}>
             <div className="popular__action product__action">
@@ -86,7 +87,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     {product?.colors?.map((colorData: any, index: number) => (
                         <SwiperSlide key={index} className="popular__slide product__slide">
                             <Link to={`/product/${id}`}>
-                                <img src={colorData.images[0]} alt={`Product color ${colorData.name}`} />
+                                <img src={colorData.images[0] || previewImage} alt={`Product color ${colorData.name}`} />
                             </Link>
                         </SwiperSlide>
                     ))}

@@ -2,6 +2,7 @@ import { FC } from "react";
 import ProductCard from "../../PopProductHOC";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 interface KitchenActionProps { kitchen: any }
 
@@ -9,7 +10,7 @@ export const KitchenAction: FC<KitchenActionProps> = ({ kitchen }) => {
 
     return <section className="main-action action">
         <div className="action__container">
-            <h2 className="action__title page-title"><a href="">ПОПУЛЯРНЫЕ ТОВАРЫ ЭТОЙ КАТЕГОРИИ</a></h2>
+            <h2 className="action__title page-title"><Link to={"/"}>ПОПУЛЯРНЫЕ ТОВАРЫ ЭТОЙ КАТЕГОРИИ</Link></h2>
         </div>
         <Swiper
             modules={[Pagination, Navigation]}
@@ -33,6 +34,7 @@ export const KitchenAction: FC<KitchenActionProps> = ({ kitchen }) => {
                         price={kitch.price}
                         oldPrice={kitch.oldPrice}
                         product={kitch.product}
+                        previewImage={kitch.image}
                         horizontal={true}
                         maxStroke={1}
                     />

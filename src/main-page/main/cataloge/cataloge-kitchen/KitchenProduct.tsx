@@ -162,6 +162,7 @@ export const KitchenProduct: FC<KitchenProductProps> = ({ kitchen }) => {
                             price={kitch.price}
                             oldPrice={kitch.oldPrice}
                             product={kitch.product}
+                            previewImage={kitch.image}
                             maxStroke={1}
                         />
                     ))}

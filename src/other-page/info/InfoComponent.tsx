@@ -3,6 +3,7 @@ import aboutus1 from "../../img/aboutus/01.jpg"
 import aboutus2 from "../../img/aboutus/02.jpg"
 import aboutus3 from "../../img/aboutus/03.jpg"
 import aboutus4 from "../../img/aboutus/04.jpg"
+import { Link } from "react-router-dom";
 export const InfoComponent: FC = () => {
     return <section className="main-aboutus aboutus">
         <div className="aboutus__container">
@@ -67,7 +68,7 @@ export const InfoComponent: FC = () => {
                             <li className="aboutus__body-item">Сборка мебели. У нас в штате есть проверенные
                                 квалифицированные сборщики за работу которых мы несем ответственность. Услуга
                                 сборки так же является платной, ознакомиться с расценками на сборку Вы можете на
-                                странице: <a href="">Сборка</a></li>
+                                странице: <Link to={"/gathering"}>Сборка</Link></li>
                         </ul>
                     </div>
                     <div className="aboutus__img"><img src={aboutus4} alt="" /></div>
