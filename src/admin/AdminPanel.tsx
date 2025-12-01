@@ -98,6 +98,8 @@ export const AdminPanel: React.FC = () => {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
+    const [pressEnter, setPressEnter] = useState<boolean>(false)
+
     const fetchProducts = async () => {
         setLoading(true);
         setError(null);
@@ -188,56 +190,106 @@ export const AdminPanel: React.FC = () => {
     // ---- НОВОЕ: работа с URL картинок (без storage) ----
     const addColor = (code = "#cccccc") => {
         if (!editing) return;
+
         const clone = JSON.parse(JSON.stringify(editing));
-        clone.product = clone.product || { color: {} };
-        // выбираем уникальный ключ цвета
+        clone.product = clone.product || { colors: {} };
+
+        // создаём уникальный ключ
         let key = code;
         let i = 1;
-        while (clone.product.color[key]) {
+        while (clone.product.colors?.[key]) {
             key = `${code}${i++}`;
         }
-        clone.product.color[key] = { name: "Новый цвет", images: [] };
+
+        clone.product.colors[key] = {
+            name: "Новый цвет",
+            images: []
+        };
+
         setEditing(clone);
     };
 
     const changeColorKey = (oldKey: string, newKey: string) => {
         if (!editing) return;
+
         const clone = JSON.parse(JSON.stringify(editing));
-        clone.product = clone.product || { color: {} };
-        if (!clone.product.color[oldKey]) return;
-        // ensure unique
-        let key = newKey || oldKey;
+        clone.product = clone.product || { colors: {} };
+
+        const color = clone.product.colors?.[oldKey];
+        if (!color) return;
+
+        // если новый ключ пустой — не меняем
+        if (!newKey.trim()) return;
+
+        // проверяем уникальность
+        let key = newKey;
         let i = 1;
-        while (clone.product.color[key] && key !== oldKey) {
+        while (clone.product.colors?.[key] && key !== oldKey) {
             key = `${newKey}${i++}`;
         }
-        clone.product.color[key] = clone.product.color[oldKey];
-        if (key !== oldKey) delete clone.product.color[oldKey];
+
+        clone.product.colors[key] = {
+            ...color,
+            images: Array.isArray(color.images) ? color.images : [] // защита
+        };
+
+        if (key !== oldKey) delete clone.product?.colors?.[oldKey];
+
         setEditing(clone);
     };
 
     const removeColor = (code: string) => {
         if (!editing) return;
+
         const clone = JSON.parse(JSON.stringify(editing));
-        delete clone.product.color[code];
+
+        if (!clone.product?.colors?.[code]) return;
+
+        delete clone.product.colors[code];
+
         setEditing(clone);
     };
 
     const addColorImageByUrl = (code: string, url: string) => {
         if (!editing) return;
+
         const clone = JSON.parse(JSON.stringify(editing));
-        clone.product = clone.product || { color: {} };
-        clone.product.color[code].images = clone.product.color[code].images || [];
-        clone.product.color[code].images.push(url);
+        clone.product = clone.product || { colors: {} };
+
+        if (!clone.product.colors?.[code]) {
+            // если цвет исчез — создаём как пустой
+            clone.product.colors[code] = { name: "Без имени", images: [] };
+        }
+
+        if (!Array.isArray(clone.product.colors?.[code].images)) {
+            clone.product.colors[code].images = [];
+        }
+
+        clone.product.colors?.[code].images.push(url);
+
         setEditing(clone);
     };
 
     const removeColorImage = (code: string, idx: number) => {
         if (!editing) return;
+
         const clone = JSON.parse(JSON.stringify(editing));
-        clone.product.color[code].images.splice(idx, 1);
+
+        const color = clone.product?.colors?.[code];
+        if (!color) return;
+
+        if (!Array.isArray(color.images)) {
+            color.images = [];
+            return; // нечего удалять
+        }
+
+        if (idx < 0 || idx >= color.images.length) return;
+
+        color.images.splice(idx, 1);
+
         setEditing(clone);
     };
+
 
     const addModule = (target: "module" | "table") => {
         if (!editing) return;
@@ -284,11 +336,6 @@ export const AdminPanel: React.FC = () => {
     const onSetPreviewUrl = (url: string) => {
         if (!editing) return;
         setEditing({ ...editing, image: url });
-    };
-
-    const promptForUrl = async (action: (url: string) => void) => {
-        const url = window.prompt("Вставьте прямую ссылку на изображение (URL):");
-        if (url && url.trim()) action(url.trim());
     };
 
     // price helpers for inputs: allow typing digits, format on blur
@@ -339,6 +386,7 @@ export const AdminPanel: React.FC = () => {
 
     return (
         <div className="admin-panel">
+            {pressEnter && <div className="press-enter">Для подтверждения нажмите <span>"Enter"</span></div>}
             <div className="admin-panel__header">
                 <h1>Admin Panel — Товары</h1>
                 <LoadProductMOCK />
@@ -456,7 +504,6 @@ export const AdminPanel: React.FC = () => {
                                 <span>Миниатюра (URL)</span>
                                 <div style={{ display: "flex", gap: 8 }}>
                                     <input value={editing.image || ""} onChange={(e) => onSetPreviewUrl(e.target.value)} placeholder="https://..." />
-                                    <button className="btn" onClick={() => promptForUrl((u) => onSetPreviewUrl(u))}>Вставить URL</button>
                                 </div>
                                 {editing.image && <div className="preview"><img src={editing.image} alt="preview" /></div>}
                             </label>
@@ -492,14 +539,13 @@ export const AdminPanel: React.FC = () => {
                                                 ))}
 
                                                 <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                                                    <input placeholder="https://..." onKeyDown={(e) => {
+                                                    <input onFocus={() => setPressEnter(true)} onBlur={() => setPressEnter(false)} placeholder="https://..." onKeyDown={(e) => {
                                                         if (e.key === "Enter") {
                                                             const input = e.target as HTMLInputElement;
                                                             const url = input.value.trim();
                                                             if (url) { addColorImageByUrl(code, url); input.value = ""; }
                                                         }
                                                     }} />
-                                                    <button className="btn" onClick={() => promptForUrl((u) => addColorImageByUrl(code, u))}>Добавить URL</button>
                                                 </div>
                                             </div>
                                             <button className="btn btn--danger" onClick={() => removeColor(code)}>Удалить цвет</button>
@@ -599,8 +645,8 @@ export const AdminPanel: React.FC = () => {
                         <div className="editor-empty">Выберите товар слева или создайте новый</div>
                     )}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
