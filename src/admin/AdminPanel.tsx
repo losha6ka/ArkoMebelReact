@@ -147,6 +147,7 @@ export const AdminPanel: React.FC = () => {
             alert("Ошибка удаления");
         }
     };
+    const deepClone = (v: any) => JSON.parse(JSON.stringify(v ?? {}));
 
     const handleEdit = (p: ProductType) => setEditing(JSON.parse(JSON.stringify(p)));
 
@@ -208,11 +209,32 @@ export const AdminPanel: React.FC = () => {
 
         setEditing(clone);
     };
+    const updateColor = (code: string, update: any) => {
+        setEditing(prev => {
+            const clone = deepClone(prev);
+
+            // гарантия структуры
+            clone.product = clone.product || {};
+            clone.product.colors = clone.product.colors || {};
+
+            clone.product.colors[code] = clone.product.colors[code] || {
+                name: "",
+                images: [],
+            };
+
+            // updater меняет только необходимые поля
+            update(clone.product.colors[code]);
+
+            return clone;
+        });
+    };
 
     const changeColorKey = (oldKey: string, newKey: string) => {
         if (!editing) return;
+        if (!newKey || !newKey.trim()) return;
 
         const clone = JSON.parse(JSON.stringify(editing));
+
         clone.product = clone.product || { colors: {} };
 
         const color = clone.product.colors?.[oldKey];
@@ -251,24 +273,18 @@ export const AdminPanel: React.FC = () => {
     };
 
     const addColorImageByUrl = (code: string, url: string) => {
-        if (!editing) return;
-
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.product = clone.product || { colors: {} };
-
-        if (!clone.product.colors?.[code]) {
-            // если цвет исчез — создаём как пустой
-            clone.product.colors[code] = { name: "Без имени", images: [] };
-        }
-
-        if (!Array.isArray(clone.product.colors?.[code].images)) {
-            clone.product.colors[code].images = [];
-        }
-
-        clone.product.colors?.[code].images.push(url);
-
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone.product = clone.product || {};
+            clone.product.colors = clone.product.colors || {};
+            if (!clone.product.colors[code]) clone.product.colors[code] = { name: "Без имени", images: [] };
+            if (!Array.isArray(clone.product.colors[code].images)) clone.product.colors[code].images = [];
+            clone.product.colors[code].images.push(url);
+            return clone;
+        });
     };
+
 
     const removeColorImage = (code: string, idx: number) => {
         if (!editing) return;
@@ -292,97 +308,127 @@ export const AdminPanel: React.FC = () => {
 
 
     const addModule = (target: "module" | "table") => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone[target] = clone[target] || [];
-        clone[target].push({ name: "Новый элемент", img: "", price: "" });
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            clone[target] = clone[target] || [];
+            clone[target].push({ name: "Новый элемент", img: "", price: "" });
+            return clone;
+        });
     };
     const removeModule = (target: "module" | "table", idx: number) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone[target].splice(idx, 1);
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            if (!clone[target]) return prev;
+            clone[target].splice(idx, 1);
+            return clone;
+        });
     };
 
     const addDescription = () => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.description = clone.description || [];
-        clone.description.push("");
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            clone.description = clone.description || [];
+            clone.description.push("");
+            return clone;
+        });
     };
     const removeDescription = (idx: number) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.description.splice(idx, 1);
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            if (!clone.description) return prev;
+            clone.description.splice(idx, 1);
+            return clone;
+        });
     };
 
     const addDelivery = () => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.delivery = clone.delivery || [];
-        clone.delivery.push({ service: "Новый сервис", price: "" });
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            clone.delivery = clone.delivery || [];
+            clone.delivery.push({ service: "Новый сервис", price: "" });
+            return clone;
+        });
     };
     const removeDelivery = (idx: number) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.delivery.splice(idx, 1);
-        setEditing(clone);
+        setEditing(prev => {
+            const clone = deepClone(prev);
+            if (!clone.delivery) return prev;
+            clone.delivery.splice(idx, 1);
+            return clone;
+        });
     };
 
     const onSetPreviewUrl = (url: string) => {
-        if (!editing) return;
-        setEditing({ ...editing, image: url });
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone.image = url;
+            return clone;
+        });
     };
 
     // price helpers for inputs: allow typing digits, format on blur
     const handlePriceChange = (field: keyof ProductType, value: string) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        // keep raw digits while typing
-        clone[field] = stripPrice(value);
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone[field] = stripPrice(value);
+            return clone;
+        });
     };
-
     const handlePriceBlur = (field: keyof ProductType) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone[field] = formatPrice(stripPrice(clone[field] as any));
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone[field] = formatPrice(stripPrice(clone[field] as any));
+            return clone;
+        });
     };
 
     const handleSubItemPriceChange = (target: "module" | "table", idx: number, value: string) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone[target][idx].price = stripPrice(value);
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone[target] = clone[target] || [];
+            clone[target][idx] = clone[target][idx] || {};
+            clone[target][idx].price = stripPrice(value);
+            return clone;
+        });
     };
     const handleSubItemPriceBlur = (target: "module" | "table", idx: number) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone[target][idx].price = formatPrice(stripPrice(clone[target][idx].price));
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone[target] = clone[target] || [];
+            clone[target][idx] = clone[target][idx] || {};
+            clone[target][idx].price = formatPrice(stripPrice(clone[target][idx].price));
+            return clone;
+        });
     };
 
     const handleDeliveryPriceChange = (idx: number, value: string) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.delivery[idx].price = stripPrice(value);
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone.delivery = clone.delivery || [];
+            clone.delivery[idx] = clone.delivery[idx] || {};
+            clone.delivery[idx].price = stripPrice(value);
+            return clone;
+        });
     };
     const handleDeliveryPriceBlur = (idx: number) => {
-        if (!editing) return;
-        const clone = JSON.parse(JSON.stringify(editing));
-        clone.delivery[idx].price = formatPrice(stripPrice(clone.delivery[idx].price));
-        setEditing(clone);
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = deepClone(prev);
+            clone.delivery = clone.delivery || [];
+            clone.delivery[idx] = clone.delivery[idx] || {};
+            clone.delivery[idx].price = formatPrice(stripPrice(clone.delivery[idx].price));
+            return clone;
+        });
     };
 
     // palette of popular colors
     const suggestedColors = ["#ffffff", "#000000", "#f4f4f4", "#e6e6e6", "#c0c0c0", "#ff0000", "#00ff00", "#0000ff", "#f5deb3", "#8b4513"];
-    console.log(items)
 
     return (
         <div className="admin-panel">
@@ -525,11 +571,21 @@ export const AdminPanel: React.FC = () => {
                                         <div className="color-row" key={code}>
                                             <input type="color" value={code.startsWith("#") ? code : "#cccccc"} onChange={(e) => changeColorKey(code, e.target.value)} />
                                             <input className="color-code" value={code} readOnly />
-                                            <input className="color-name" value={cd.name} onChange={(e) => {
-                                                const clone = JSON.parse(JSON.stringify(editing));
-                                                clone.product.color[code].name = e.target.value;
-                                                setEditing(clone);
-                                            }} />
+                                            <input
+                                                className="color-name"
+                                                value={cd.name}
+                                                onChange={(e) => {
+                                                    const clone = JSON.parse(JSON.stringify(editing));
+                                                    // гарантируем, что colors существует
+                                                    if (!clone.product.colors) { clone.product.colors = {}; }
+                                                    // гарантируем, что цвет существует
+                                                    if (!clone.product.colors[code]) {
+                                                        clone.product.colors[code] = { name: "", images: [] };
+                                                    }
+                                                    clone.product.colors[code].name = e.target.value;
+                                                    setEditing(clone);
+                                                }}
+                                            />
                                             <div className="color-images">
                                                 {cd.images?.map((img: string, idx: number) => (
                                                     <div key={idx} className="color-image">
@@ -553,7 +609,6 @@ export const AdminPanel: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-
                             <div className="section">
                                 <h3>Модули</h3>
                                 <button className="btn" onClick={() => addModule("module")}>Добавить модуль</button>
