@@ -100,6 +100,8 @@ export const AdminPanel: React.FC = () => {
 
     const [pressEnter, setPressEnter] = useState<boolean>(false)
 
+    const [localColors, setLocalColors] = useState<Record<string, any>>({});
+
     const fetchProducts = async () => {
         setLoading(true);
         setError(null);
@@ -167,7 +169,6 @@ export const AdminPanel: React.FC = () => {
             (editing.module || []).forEach((m) => { if (m.price) m.price = formatPrice(stripPrice(m.price)); });
             (editing.table || []).forEach((m) => { if (m.price) m.price = formatPrice(stripPrice(m.price)); });
             (editing.delivery || []).forEach((d) => { if (d.price) d.price = formatPrice(stripPrice(d.price)); });
-
             if (editing.id) {
                 const refDoc = doc(db, "products", editing.id);
                 const payload = { ...editing } as any;
@@ -189,6 +190,40 @@ export const AdminPanel: React.FC = () => {
     };
 
     // ---- НОВОЕ: работа с URL картинок (без storage) ----
+    const updateLocalColor = (id: string, updater: (c: any) => void) => {
+        setLocalColors(prev => {
+            const clone = structuredClone(prev);
+            if (!clone[id]) {
+                clone[id] = { id, name: "", hex: "#ccc", images: [], thumbnail: "" };
+            }
+            updater(clone[id]);
+            return clone;
+        });
+    };
+    const mergeLocalToEditing = () => {
+        setEditing(prev => {
+            if (!prev) return prev;
+            const clone = structuredClone(prev);
+            clone.product = clone.product || {};
+            clone.product.colors = structuredClone(localColors);
+            return clone;
+        });
+    };
+    const createLocalColor = (hex = "#cccccc") => {
+        const id = crypto.randomUUID();
+
+        setLocalColors(prev => ({
+            ...prev,
+            [id]: {
+                id,
+                hex,
+                name: "Новый цвет",
+                thumbnail: "",
+                images: []
+            }
+        }));
+    };
+
     const addColor = (code = "#cccccc") => {
         if (!editing) return;
 
@@ -208,25 +243,6 @@ export const AdminPanel: React.FC = () => {
         };
 
         setEditing(clone);
-    };
-    const updateColor = (code: string, update: any) => {
-        setEditing(prev => {
-            const clone = deepClone(prev);
-
-            // гарантия структуры
-            clone.product = clone.product || {};
-            clone.product.colors = clone.product.colors || {};
-
-            clone.product.colors[code] = clone.product.colors[code] || {
-                name: "",
-                images: [],
-            };
-
-            // updater меняет только необходимые поля
-            update(clone.product.colors[code]);
-
-            return clone;
-        });
     };
 
     const changeColorKey = (oldKey: string, newKey: string) => {
@@ -558,9 +574,9 @@ export const AdminPanel: React.FC = () => {
                                 <div className="section-header">
                                     <h3>Цвета (colors)</h3>
                                     <div style={{ display: "flex", gap: 8 }}>
-                                        <button className="btn" onClick={() => addColor()}>Добавить цвет</button>
+                                        <button className="btn" onClick={() => createLocalColor()}>Добавить цвет</button>
                                         {suggestedColors.map((c) => (
-                                            <button key={c} title={c} className="color-suggest" onClick={() => addColor(c)}>
+                                            <button key={c} title={c} className="color-suggest" onClick={() => createLocalColor(c)}>
                                                 <span style={{ background: c, width: 20, height: 20, display: "inline-block", border: "1px solid #000" }} />
                                             </button>
                                         ))}
@@ -607,6 +623,78 @@ export const AdminPanel: React.FC = () => {
                                             <button className="btn btn--danger" onClick={() => removeColor(code)}>Удалить цвет</button>
                                         </div>
                                     ))}
+                                    <div className="colors">
+                                        {Object.entries(localColors).map(([id, color]) => (
+                                            <div key={id} className="color-row">
+
+                                                {/* HEX Color Picker */}
+                                                <input
+                                                    type="color"
+                                                    value={color.hex || "#cccccc"}
+                                                    onChange={(e) =>
+                                                        updateLocalColor(id, (c) => (c.hex = e.target.value))
+                                                    }
+                                                />
+
+                                                <input className="color-code" value={color.hex} readOnly />
+
+                                                {/* NAME */}
+                                                <input
+                                                    className="color-name"
+                                                    value={color.name || ""}
+                                                    onChange={(e) =>
+                                                        updateLocalColor(id, (c) => (c.name = e.target.value))
+                                                    }
+                                                />
+
+                                                {/* IMAGES */}
+                                                <div className="color-images">
+                                                    {color.images.map((img: any, idx: any) => (
+                                                        <div key={idx} className="color-image">
+                                                            <img src={img} alt="img" />
+                                                            <button
+                                                                className="btn btn--small"
+                                                                onClick={() => updateLocalColor(id, (c) => c.images.splice(idx, 1))}    >
+                                                                ✖
+                                                            </button>
+                                                        </div>
+                                                    ))}
+
+                                                    {/* Добавление Image URL (без изменения editing!) */}
+                                                    <input
+                                                        onBlur={() => {
+                                                            setPressEnter(false)
+                                                            mergeLocalToEditing()
+                                                        }}
+                                                        onFocus={() => setPressEnter(true)}
+                                                        placeholder="https://..."
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === "Enter") {
+                                                                const url = e.currentTarget.value.trim();
+                                                                if (url) {
+                                                                    updateLocalColor(id, (c) => c.images.push(url));
+                                                                    e.currentTarget.value = "";
+                                                                }
+                                                            }
+                                                        }}
+                                                    />
+                                                </div>
+
+                                                <button
+                                                    className="btn btn--danger"
+                                                    onClick={() => {
+                                                        setLocalColors(prev => {
+                                                            const clone = structuredClone(prev);
+                                                            delete clone[id];
+                                                            return clone;
+                                                        });
+                                                    }}
+                                                >
+                                                    Удалить цвет
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                             <div className="section">
