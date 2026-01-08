@@ -33,9 +33,9 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
             applyFilters({
                 minPrice: 0,
                 maxPrice: Infinity,
-                color: "",
-                style: "",
-                material: ""
+                // color: "",
+                // style: "",
+                // material: ""
             });
         }
     }, [reset]);
@@ -53,9 +53,9 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
     };
     const handleReset = (e: React.FormEvent) => {
         e.preventDefault();
-        setFilterColor("")
-        setFilterStyle("")
-        setFilterMaterial("")
+        // setFilterColor("")
+        // setFilterStyle("")
+        // setFilterMaterial("")
         onFilterChange({
             minPrice: 0,
             maxPrice: Infinity,
@@ -117,7 +117,8 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
                 </div>
                 <div className="aside-kitchen__colors">
                     <h4 className="aside-kitchen__title">Цвет фасадов</h4>
-                    {allColors.map(({ code, name }: any) => {
+                    {/* ДОБАВИТЬ В FIREBASE ФИЛЬТРАЦИЮ ПО ВСЕМ ЦВЕТАМ, СТИЛЮ, МАТЕРИАЛУ */}
+                    {/* {allColors.map(({ code, name }: any) => {
                         const isActive = filterColor.includes(code);
                         return (
                             <div
@@ -138,12 +139,12 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
                                 <span className={isActive ? "aside-kitchen__color-text active" : "aside-kitchen__color-text"}>{name}</span>
                             </div>
                         );
-                    })}
+                    })} */}
                 </div>
                 <div className="aside-kitchen__style">
                     <h4 className="aside-kitchen__title">Стиль</h4>
                     <div className="aside-kitchen__style-filter">
-                        {allStyles.map((style: string) => {
+                        {/* {allStyles.map((style: string) => {
                             const isActive = filterStyle.includes(style);
                             return (
                                 <div
@@ -164,14 +165,14 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
                                         className={isActive ? "aside-kitchen__style-text active" : "aside-kitchen__style-text"}>{style}</span>
                                 </div>
                             );
-                        })}
+                        })} */}
 
                     </div>
                 </div>
                 <div className="aside-kitchen__material">
                     <h4 className="aside-kitchen__title">Материал фасадов</h4>
                     <div className="aside-kitchen__material-filter">
-                        {allMaterial.map((material: string) => {
+                        {/* {allMaterial.map((material: string) => {
                             const isActive = filterMaterial.includes(material);
                             return (
                                 <div
@@ -193,7 +194,7 @@ export const KitchenProductAside: FC<KitchenProductAsideProps> = ({
                                         className={isActive ? "aside-kitchen__material-text active" : "aside-kitchen__material-text"}>{material}</span>
                                 </div>
                             );
-                        })}
+                        })} */}
                     </div>
                 </div>
                 <div className="aside-kitchen__actions">

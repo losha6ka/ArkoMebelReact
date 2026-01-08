@@ -154,18 +154,19 @@ export const KitchenProduct: FC<KitchenProductProps> = ({ kitchen }) => {
                 </div>
                 <button className="kitchen__aside-btn" onClick={() => setActiveAsideFilter(true)}>ФИЛЬТР</button>
                 <div className="kitchen__items product__items">
-                    {getProductsForCurrentPage().length === 0 ? <div className="kitchen__subtitle">Нет товаров по данному запросу</div> : getProductsForCurrentPage()?.map((kitch: any) => (
-                        <ProductCard
-                            key={kitch.id}
-                            id={kitch.id}
-                            name={kitch.name}
-                            price={kitch.price}
-                            oldPrice={kitch.oldPrice}
-                            product={kitch.product}
-                            previewImage={kitch.image}
-                            maxStroke={1}
-                        />
-                    ))}
+                    {getProductsForCurrentPage().length === 0 ? <div className="kitchen__subtitle">Нет товаров по данному запросу</div>
+                        : getProductsForCurrentPage()?.map((kitch: any) => (
+                            <ProductCard
+                                key={kitch.id}
+                                id={kitch.id}
+                                name={kitch.name}
+                                price={kitch.price}
+                                oldPrice={kitch.oldPrice}
+                                product={kitch.product}
+                                previewImage={kitch.image}
+                                maxStroke={1}
+                            />
+                        ))}
                 </div>
                 <div className="kitchen__navigation">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((page: number) => (

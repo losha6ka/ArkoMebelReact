@@ -1,38 +1,38 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
 
-interface initialStateTS {
-    data: null | any[]
-    isLoading: boolean
+interface CardState {
+    items: any[];
+    currentKitchen: any | null;
+    isLoading: boolean;
+    activeColor: string | null;
 }
 
-const initialState: initialStateTS = {
+const initialState: CardState = {
+    items: [],
+    currentKitchen: null,
     isLoading: true,
-    data: null
-}
-
-export const fetchKitchen = createAsyncThunk("fetchKitchen", async () => {
-    const data = await fetch("https://68306fadf504aa3c70f7e4c8.mockapi.io/kitchen/kitchen")
-    return data.json()
-})
+    activeColor: null,
+};
 
 const kitchenSlice = createSlice({
     name: "kitchen",
     initialState: initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchKitchen.pending, (state, action) => {
-            state.isLoading = true
-            // console.log("LOAD")
-        })
-        builder.addCase(fetchKitchen.fulfilled, (state, action) => {
-            state.isLoading = false
-            state.data = action.payload
-            // console.log("OK")
-        })
-        builder.addCase(fetchKitchen.rejected, (state, action) => {
-            console.error("ERROR")
-        })
+    reducers: {
+        setKitchen(state, action: PayloadAction<any>) {
+            state.items = action.payload
+        },
+        setCurrentKitchen: (state, action: PayloadAction<any>) => {
+            state.currentKitchen = action.payload;
+        },
+        addActiveColor(state, action: PayloadAction<string>) {
+            state.activeColor = action.payload
+        },
+        setKitchenLoading(state, action: PayloadAction<boolean>) {
+            state.isLoading = action.payload
+        }
     },
-})
 
+})
+export const { setKitchen, setCurrentKitchen, addActiveColor, setKitchenLoading } = kitchenSlice.actions
 export default kitchenSlice.reducer;
